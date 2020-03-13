@@ -1,0 +1,63 @@
+
+Step1:
+ 
+Go to www.github.com, create a new repo and name it BIGDATA-PATRIOTS:
+
+
+Step2:
+
+# update the system files
+root$ sudo apt-get update
+
+# installing git
+root$ sudo apt-get install git-core
+
+#configuring the both username and email
+root$ sudo git config --global user.name "cesarniyo"
+root$ sudo git config --global user.email "xxxxx@gmail.com"
+
+#changing Directory to Documents
+root$ sudo cd Desktop
+
+#Displaying the content of Documents folder
+Desktop$ ls
+
+#Changing Directory to Bigdata
+Desktop$ cd Bigdata
+
+#Once in Bigdata folder clone the repo from the link
+Bigdata$ git clone "....link...."
+
+#initiate git
+Bigdata$ git init
+
+#Displaying the contents of Bigdata
+Bigdata$ la
+
+#copying the file from Bigdata to BIGDATA-PATRIOTS
+Bigdata$ cp newbash.sh BIGDATA-PATRIOTS/
+
+#Changing Directory to Bigdata
+Bigdata$ cd BIGDATA-PATRIOTS
+
+#Displaying BIGDATA-PATRIOTS contents
+BIGDATA-PATRIOTS$ ls
+
+#initiate git from "Local" BIGDATA-PATRIOTS 
+BIGDATA-PATRIOTS$ git init
+
+#Displaying BIGDATA-PATRIOTS contents
+BIGDATA-PATRIOTS$ la
+
+#Collect all in "Local" BIGDATA-PATRIOTS 
+BIGDATA-PATRIOTS$ git add .
+
+#Staging
+BIGDATA-PATRIOTS$ git commit -m "001 installation"
+
+#Push to git repo
+BIGDATA-PATRIOTS$ git push origin master
+
+
+
+
