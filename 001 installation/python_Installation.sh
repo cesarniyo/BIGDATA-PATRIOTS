@@ -1,7 +1,6 @@
-#HOW TO INSTALL PYTHON
-
-# The following command tells the system that we are install from the bash file
 #!/bin/bash
+
+#HOW TO INSTALL PYTHON
 
 ## CREATING NEW DIRECTORY
 mkdir opt
@@ -11,13 +10,13 @@ mkdir opt
 cd opt
 
 ##GO TO YOUR FOLDER (opt) THEN DOWNLOAD PYTHON FROM THE LINK BELLOW:
-wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
+sudo wget https://www.python.org/ftp/python/3.7.4/Python-3.7.4.tgz
 
 ##EXTRACT TGZIPPED 
-tar -xf Python-3.7.4.tgz
+sudo tar -xf Python-3.7.4.tgz
 
 ## REMOVE THE ZIP VERSION
-rm Python-3.7.4.tgz
+sudo rm Python-3.7.4.tgz
 
 ## GO TO PYTHON FOLDER
 cd Python-3.7.4
@@ -36,8 +35,8 @@ cd
 sudo gedit .bash_profile
 
 ##SET UP PYTHON PATH ON THE BASH FILE
-echo PYTHON_HOME=/opt/Python-3.7.4 >>sudo .bash_profile
-echo export PATH=$PATH:$PYTHON_HOME/bin >>sudo .bash_profile
+echo "PYTHON_HOME=/opt/Python-3.7.4" >> .bash_profile
+echo "export PATH=$PATH:$PYTHON_HOME/bin" >> .bash_profile
 
 
 ## SOURCING THE BASH

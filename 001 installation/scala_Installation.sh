@@ -1,7 +1,6 @@
-#HOW TO INSTALL SCALA
-
-# The following command tells the system that we are install from the bash file
 #!/bin/bash
+
+#HOW TO INSTALL SCALA
 
 ## CREATE NEW DIRECTORY
 mkdir opt
@@ -23,9 +22,9 @@ cd
 ## CREATE THE BASH FILE + SAVE
 sudo gedit .bash_profile
 
-##SET UP JAVA PATH ON THE BASH FILE
-echo SCALA_HOME=/opt/scala-2.11.8.bed >> .bash_profile
-echo export PATH=$PATH:$SCALA_HOME/bin >> .bash_profile
+##SET UP SCALA PATH ON THE BASH FILE
+echo "SCALA_HOME=/opt/scala-2.11.8.bed" >> .bash_profile
+echo "export PATH=$PATH:$SCALA_HOME/bin" >> .bash_profile
 
 
 
@@ -38,4 +37,4 @@ scala -version
 
 
 ## FROM THE ROOT RUN THE BASH FILE AS FOLLOWS:
-## bash /home/fieldemployee/Desktop/Auto_installation/java_Installation.sh
+## bash /home/fieldemployee/Desktop/Auto_installation/scala_Installation.sh

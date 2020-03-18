@@ -4,6 +4,9 @@ Start the VMachine app, got to settings- adapter1- attached (set this to Bridged
 
 Step2:SETTING UP THE SSH (Secure Shell)
 
+
+
+
 ON THE REMOTE COMPUTER(VMACHINE):
 # update the system files
 root$sudo apt-get update
@@ -27,9 +30,12 @@ root$ ssh-keygen
 root$ ip a
 
 
+
 ON THE LOCAL MACHINE:
 root$ ssh remotename@ip (from virtual machine)
-Successful set up will display Welcome message.
+Successful setup will display Welcome message.
+
+
 
 
 Step3:COPYING SETUP FILE FROM LOCAL TO REMOTE(VM)
