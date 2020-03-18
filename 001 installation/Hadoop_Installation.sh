@@ -1,4 +1,4 @@
-
+a
 #HOW TO INSTALL Hadoop
 
 # The following command tells the system that we are install from the bash file
@@ -36,16 +36,14 @@ cd
 
 ## CREATE THE BASH FILE + SAVE
 sudo gedit .bash_profile
-
-##SET UP HADOOP PATH ON THE BASH FILE
-export HADOOP_HOME=/usr/local/hadoop-3.1.3
-export HADOOP_INSTALL=$HADOOP_HOME
-export HADOOP_MAPRED_HOME=$HADOOP_HOME
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native
-export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin
+echo "export HADOOP_HOME=/home/cesar/opt/hadoop-3.1.3" >> .bash_profile
+echo "export HADOOP_INSTALL=$HADOOP_HOME" >> .bash_profile
+echo "export HADOOP_MAPRED_HOME=$HADOOP_HOME" >> .bash_profile
+echo "export HADOOP_COMMON_HOME=$HADOOP_HOME" >> .bash_profile
+echo "export HADOOP_HDFS_HOME=$HADOOP_HOME" >> .bash_profile
+echo "export YARN_HOME=$HADOOP_HOME" >> .bash_profile
+echo "export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native" >> .bash_profile
+echo "export PATH=$PATH:$HADOOP_HOME/sbin:$HADOOP_HOME/bin" >> .bash_profile
 
 
 ## SOURCING THE BASH
@@ -54,21 +52,25 @@ source .bash_profile
 
 #HADOOP CONFIG FILES (sudo gedit core-site.xml => then pest the command in there)
 
-#core-site.xml
-<configuration>
+sudo gedit hadoop-env.sh
+echo "export JAVA_HOME=/home/cesar/opt/jdk1.8.0_221" >> hadoop-env.sh
+
+sudo gedit core-site.xml
+echo "<configuration>
 <property>
-     <name>fs.default.name</name>
-     <value>hdfs://localhost:9000</value>
+  <name>fs.default.name</name>
+    <value>hdfs://localhost:9000</value>
 </property>
-</configuration>
+</configuration>" >> core-site.xml
 
 
 #Create namenode and datanode  folder and then copy the path to hdfs-site.xml
-mkdir hdfs/namenode
+mkdir hdfs/namenode  #will be in home/cesar/hdfs/namenode
 mkdir hdfs/datanode
 
 #hdfs-site.xml
-<configuration>
+sudo gedit hdfs-site.xml
+echo "<configuration>
 <property>
    <name>dfs.replication</name>
    <value>1</value>
@@ -81,19 +83,21 @@ mkdir hdfs/datanode
     <name>dfs.data.dir</name>
     <value>file:////home/cesar/hdfs/datanode</value>
 </property>
-</configuration>
+</configuration>" >> hdfs-site.xml
+
 
 #yarn-site.xml
-<configuration>
+sudo gedit yarn-site.xml
+echo "<configuration>
  <property>
   <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
  </property>
-</configuration>
+</configuration>" >> yarn-site.xml
 
 #mapred-site.xml
-
-<configuration>
+sudo gedit mapred-site.xml
+echo "<configuration>
  <property>
   <name>mapreduce.framework.name</name>
    <value>yarn</value>
@@ -110,7 +114,7 @@ mkdir hdfs/datanode
    <name>mapreduce.reduce.env</name>
    <value>HADOOP_MAPRED_HOME=${HADOOP_HOME}</value>
  </property>
-</configuration>
+</configuration>" >> mapred-site.xml
 
 
 #Format Namenode
@@ -120,31 +124,31 @@ hdfs namenode -format
 cd $HADOOP_HOME/sbin/
 
 #Start dfs
-./start-dfs.sh
+#./start-dfs.sh
 
 #Start yarn
-./start-yarn.sh
+#./start-yarn.sh
 
 #Start/Stop all
-$ start-all.sh /stop-all.sh
+start-all.sh #/stop-all.sh
 
 #Check all
-$ jps
+jps
 
 #Creating a Directory on hdfs
-$ hdfs dfs -mkdir /test
-$ hdfs dfs -ls /
-$ hdfs dfs -put /home/cesar/Desktop/shakespeare.txt /test
-$ hdfs dfs -ls /test
-$ hdfs dfs -rm /test/shakespeare.txt
-$ hdfs dfs -rmdir /test
+hdfs dfs -mkdir /test
+hdfs dfs -ls /
+hdfs dfs -put /home/cesar/Desktop/shakespeare.txt /test  #add a file into the directory
+hdfs dfs -ls /test
+#hdfs dfs -rm /test/shakespeare.txt
+#hdfs dfs -rmdir /test
 
 
 #Check Hadoop version
-$ hadoop version
+hadoop version
 
 #Check hdfs version
-$ hdfs version
+hdfs version
 
 #check thru browser
 localhost:9870

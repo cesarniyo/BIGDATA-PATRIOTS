@@ -1,0 +1,29 @@
+
+NETCAT(SENDING MESSAGE FROM LOCAL TO LOCAL)
+
+TERMINAL1(Server)
+$ nc -l localhost 6666  [ENTER]
+
+TERMINAL2(Client)
+$ nc localhost 6666  [ENTER]
+
+**************************************
+
+NETCAT(SENDING MESSAGE FROM LOCAL TO VIRTUAL)
+First get the IP From LOCAL (IT WILL BE USED ON THE VIRTUAL TERMINAL) by doing:
+$ sudo service ssh start
+$ ip a
+
+ON LOCAL TERMINAL
+$  nc -l 6666    [ENTER]
+
+
+ON VIRTUAL TERMINAL
+$  nc 10.1.10.187 6666 [ENTER]
+
+
+
+
+
+#https://askubuntu.com/questions/31582/send-messages-between-2-ubuntu-pcs-net-send-style
+#https://linoxide.com/linux-how-to/install-use-netcat-command-linux/

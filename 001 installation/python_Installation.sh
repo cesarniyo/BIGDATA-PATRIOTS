@@ -35,7 +35,7 @@ cd
 sudo gedit .bash_profile
 
 ##SET UP PYTHON PATH ON THE BASH FILE
-echo "PYTHON_HOME=/opt/Python-3.7.4" >> .bash_profile
+echo "PYTHON_HOME=home/cesar/opt/Python-3.7.4" >> .bash_profile
 echo "export PATH=$PATH:$PYTHON_HOME/bin" >> .bash_profile
 
 
@@ -44,7 +44,7 @@ sudo source .bash_profile
 
 
 ## CHECK PYTHON VERSION
-python3.7 --version
+#python3.7 --version
 
 ## FROM THE ROOT RUN THE BASH FILE AS FOLLOWS: 
 ## bash /home/fieldemployee/Desktop/Auto_installation/python_Installation.sh
