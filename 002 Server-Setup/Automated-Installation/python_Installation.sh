@@ -38,7 +38,7 @@ sudo make altinstall #altinstall
 sudo gedit .bash_profile
 
 ##SET UP PYTHON PATH ON THE BASH FILE
-echo "PYTHON_HOME=home/cesar/opt/Python-3.7.4" >> .bash_profile
+echo "PYTHON_HOME=/home/cesar/opt/Python-3.7.4" >> .bash_profile
 echo "export PATH=$PATH:$PYTHON_HOME/bin" >> .bash_profile
 
 

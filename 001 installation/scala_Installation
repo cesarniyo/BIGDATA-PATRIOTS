@@ -1,6 +1,4 @@
-#!/bin/bash
-
-#HOW TO INSTALL SCALA
+#SCALA INSTALLATOIN MANUALLY
 
 ## CREATE NEW DIRECTORY
 mkdir opt
@@ -23,7 +21,7 @@ cd
 sudo gedit .bash_profile
 
 ##SET UP SCALA PATH ON THE BASH FILE
-echo "SCALA_HOME=/opt/scala-2.11.8.bed" >> .bash_profile
+echo "SCALA_HOME=/home/cesar/opt/scala-2.11.8.bed" >> .bash_profile
 echo "export PATH=$PATH:$SCALA_HOME/bin" >> .bash_profile
 
 
