@@ -1,0 +1,15 @@
+MapReduce JOb
+
+Step1:
+Created mapper.py
+
+Step2:
+Created reducer.py
+
+
+Step3:RUN MapReduce JOB
+- send data to HDFS
+- use both mapper, reducer for computation task on data.
+
+
+
