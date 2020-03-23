@@ -38,7 +38,7 @@ cd
 sudo gedit .bash_profile
 
 ##SET UP HADOOP PATH ON THE BASH FILE (Setting Up the environment variables)
-echo "export HADOOP_HOME=/home/cesar/hadoop-3.1.3" >> .bash_profile
+echo "export HADOOP_HOME=/home/cesar/opt/hadoop-3.1.3" >> .bash_profile
 echo "export HADOOP_INSTALL=$HADOOP_HOME" >> .bash_profile
 echo "export HADOOP_MAPRED_HOME=$HADOOP_HOME" >> .bash_profile
 echo "export HADOOP_COMMON_HOME=$HADOOP_HOME" >> .bash_profile
@@ -71,8 +71,8 @@ echo "<configuration>
 
 
 #Create namenode and datanode  folder and then copy the path to hdfs-site.xml
-mkdir hdfs/namenode  #This will be created in home/cesar/hdfs/namenode
-mkdir hdfs/datanode
+mkdir /home/cesar/hdfs/namenode  #This will be created in home/cesar/hdfs/namenode
+mkdir /home/cesar/hdfs/datanode
 
 
 
@@ -85,11 +85,11 @@ echo "<configuration>
 </property>
 <property>
     <name>dfs.name.dir</name>
-    <value>file:////home/cesar/hdfs/namenode</value>
+    <value>file:///home/cesar/opt/hdfs/namenode</value>
 </property>
 <property>
     <name>dfs.data.dir</name>
-    <value>file:////home/cesar/hdfs/datanode</value>
+    <value>file:///home/cesar/opt/hdfs/datanode</value>
 </property>
 </configuration>" >> hdfs-site.xml
 
@@ -144,6 +144,12 @@ start-all.sh ##stop-all.sh
 
 #Check all
 jps
+
+
+#TROUBLE-SHOT (#hadoop-daemon.sh start tasktracker)
+#hadoop-daemon.sh start tasktracker
+#hadoop-daemon.sh start datanode
+#hadoop-daemon.sh start namenode
 
 #Creating a Directory on hdfs
 hdfs dfs -mkdir /test

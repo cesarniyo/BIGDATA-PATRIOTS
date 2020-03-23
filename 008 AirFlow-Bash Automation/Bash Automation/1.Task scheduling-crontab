@@ -1,0 +1,26 @@
+
+Step1:
+Create a file.sh
+add some command to be run in it
+
+step2:
+on the terminal do:
+crontab -e : to create task schedule in crontab file
+
+m h  dom mon dow   command
+1 * * * * bash /home/cesar/Desktop/test_crontab.sh    (runs every one minutes)
+52 0 20 * * bash /home/cesar/Desktop/test_crontab.sh 
+
+
+
+
+ Crontab Commands
+
+export EDITOR=vi ;to specify a editor to open crontab file.
+
+crontab -e    Edit crontab file, or create one if it doesn’t already exist.
+crontab -l    crontab list of cronjobs , display crontab file contents.
+crontab -r    Remove your crontab file.
+crontab -v    Display the last time you edited your crontab file. (This option is only available on a few systems.)
+
+#https://www.adminschoice.com/crontab-quick-reference
