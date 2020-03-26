@@ -1,0 +1,76 @@
+#Apache Flume - Fetching DATA
+
+USING FLUME TO COLLECT INFORMATION FROM A GIVEN PORT
+Moving guava file from lib to /opt/apache-flume-1.9.0-bin
+cesar@cesar-VirtualBox:~/opt/apache-flume-1.9.0-bin/lib$ sudo mv guava-11.0.2.jar ../
+cesar@cesar-VirtualBox:~/opt/apache-flume-1.9.0-bin$ ls
+
+
+source .bash_profile
+jps
+hdfs dfs -mkdir /flumetest
+
+# COPY THE TEMPLATE FILE
+cd opt/apache-flume-1.9.0-bin/conf$ cp flume-conf.properties.template /home/cesar/Desktop
+Desktop$ mv flume-conf.properties.template flume-agent
+sudo gedit flume-agent 
+
+
+COPY ALL THE FOLLOWING TO flume-agent you just created:
+
+agent.sources = netcat
+agent.channels = mem
+agent.sinks = hadoop
+
+# For each one of the sources, the type is defined
+agent.sources.netcat.type = netcat
+agent.sources.netcat.bind = localhost
+agent.sources.netcat.port = 44444
+
+
+# Describing/Configuring the sink 
+agent.sinks.LoggerSink.type = logger 
+
+# The channel can be defined as follows.
+agent.channels.mem.type = memory
+agent.channels.mem.capacity = 1000
+agent.channels.mem.transactionCapacity = 100
+
+# Each sink's type must be defined
+agent.sinks.hadoop.type = hdfs
+agent.sinks.hadoop.hdfs.path = hdfs://localhost:9000/flumetest
+agent.sinks.hadoop.hdfs.roll.Interval = 10
+agent.sinks.hadoop.hdfs.writeFormat = Text
+agent.sinks.hadoop.hdfs.filetype = DataStream
+
+# Bind the source and sink to the channel
+agent.sources.netcat.channels = mem
+agent.sinks.hadoop.channel = mem
+
+
+START THE FLUME AGENT 
+$flume-ng agent --name agent --conf-file flume-agent -Dflume.root.logger=INFO,console
+ 
+
+
+#For DataStreaming on terminal do:
+nc localhost 44444 [ENTER]
+----message-------will be sent to HDFS
+
+# For File sending on terminal do:
+netcat -N localhost 44444 < /home/cesar/Desktop/temp1.txt  [ENTER]
+----File-------will be sent to HDFS
+
+
+
+
+
+CHECK THE COLLECTED DATA
+$ hdfs dfs -ls /flumetest
+$ hdfs dfs -cat /flumetest/FlumeData.1584980062785
+
+
+https://www.tutorialspoint.com/apache_flume/fetching_twitter_data.htm
+
+
+
