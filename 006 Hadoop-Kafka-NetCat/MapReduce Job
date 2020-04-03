@@ -7,9 +7,12 @@ Step2:
 Created reducer.py
 
 
-Step3:RUN MapReduce JOB
+Step3:RUN MapReduce JOB 
 - send data to HDFS
 - use both mapper, reducer for computation task on data.
+
+
+($python /home/cesar/Desktop/mapper.py)
 
 
 

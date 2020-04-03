@@ -1,0 +1,99 @@
+
+
+#RDD IN CLASS :CREATING AN RDD
+mylist=[1,2,3,4,5]
+rdd=sc.parallelize(mylist)
+rdd.collect()
+rdd.foreach(print)
+
+
+
+OPTION1 :CREATING AN RDD FROM A FILE
+f=open('/home/cesar/Desktop/shakespeare1.txt','r')
+line_list=f.readlines()
+rdd=sc.parallelize(line_list)
+rdd.collect()
+rdd.foreach(print)
+
+
+
+OPTION2: CREATING AN RDD FROM KAFKA(producer.py   consumer.py   kafka-spark.py)
+#producer.py
+******************
+from time import sleep
+from json import dumps
+import json
+from kafka import KafkaProducer
+
+producer = KafkaProducer(bootstrap_servers=['localhost:9096'])
+f=open('/home/cesar/Desktop/shakespeare.txt','r')
+line_list=f.readlines()
+
+for i in range(len(line_list)):
+	producer.send('bigdata',json.dumps(line_list[i]).encode('utf-8'))
+	sleep(1)
+	print(i
+
+
+
+#consumer.py
+******************
+from json import loads
+from kafka import KafkaConsumer
+
+consumer= KafkaConsumer('bigdata',bootstrap_servers=['localhost:9096'],auto_offset_reset='earliest')
+f=open('/home/cesar/Desktop/PC/shakespeare.txt','w')
+
+for message in consumer:
+      message = message.value
+      f.write(message.decode('utf-8'))
+f.close()
+
+
+#kafka-spark.py
+********************
+import sys
+from pyspark import SparkContext, SparkConf
+from pyspark.streaming import StreamingContext
+from pyspark.streaming.kafka import KafkaUtils
+
+sc = SparkContext(appName=”PythonStreamingRecieverKafkaWordCount”)
+ssc = StreamingContext(sc, 2) # 2 second window    
+broker, topic = sys.argv[1:]
+kvs = KafkaUtils.createStream(ssc, broker, “raw-event-streaming-consumer”,{topic:1})     
+lines = kvs.map(lambda x: x[1])
+counts = lines.flatMap(lambda line: line.split(“ “)).map(lambda word: (word, 1)).reduceByKey(lambda a, b: a+b)    
+counts.pprint()
+ssc.start()
+ssc.awaitTermination()
+
+
+
+
+LOADING A FILE TO SPARK DATAFRAME FROM LOCAL
+*********************
+from pyspark import SparkContxt
+from pyspark.sql import SQLContext
+import pandas as pd
+
+sqlc=SQLContext(sc)
+df=pd.read_csv(r'/home/cesar/Desktop/spark/MOCK_DATA.csv')
+spark_df=sqlc.createDataFrame(df)
+spark_df.show()
+
+
+*********************
+rdd = sc.parallelize([(1,2,3),(4,5,6),(7,8,9)])
+df = rdd.toDF(["a","b","c"])
+df.show()
+
+
+
+
+
+
+
+
+
+
+

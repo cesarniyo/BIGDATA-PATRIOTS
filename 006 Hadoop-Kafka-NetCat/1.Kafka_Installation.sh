@@ -13,7 +13,7 @@
 cd opt
 
 ##GO TO YOUR FOLDER (opt) THEN DOWNLOAD KAFKA FROM THE LINK BELLOW:
-sudo wget https://downloads.apache.org/kafka/2.3.1/kafka_2.11-2.3.1.tgz
+sudo wget https://www-eu.apache.org/dist/kafka/2.3.1/kafka_2.11-2.3.1.tgz
 
 ##UNTAR THE DOWNLOADED FOLDER
 sudo tar xzf kafka_2.11-2.3.1.tgz ##-xzvf 
@@ -29,7 +29,7 @@ cd
 sudo gedit .bash_profile
 
 ## CREATING HOME
-echo "export KAFKA_HOME=/home/cesar/opt/jdk1.8.0_221" >> .bash_profile
+echo "export KAFKA_HOME=/home/cesar/opt/kafka-2.3.1" >> .bash_profile
 echo "export PATH=$PATH:$KAFKA_HOME/bin" >> .bash_profile
 
 source .bash_profile

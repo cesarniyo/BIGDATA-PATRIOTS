@@ -5,8 +5,6 @@ Start the VMachine app, got to settings- adapter1- attached (set this to Bridged
 Step2:SETTING UP THE SSH (Secure Shell)
 
 
-
-
 ON THE REMOTE COMPUTER(VMACHINE):
 # update the system files
 root$sudo apt-get update
