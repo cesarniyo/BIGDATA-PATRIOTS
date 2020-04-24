@@ -1,0 +1,52 @@
+
+HADOOP - CLUSTER 
+
+
+STEP1: 
+CLONE THE VIRTUAL MACHINE TO GET 2 OR MORE SERVERS
+since we have java and hadoop installed all we need is just 
+clones 
+
+
+STEP2:
+CHECK THE CONFIGURATION
+#Check if Java is installed
+$java --version
+
+#Check if hadoop is installed
+$hadoop version
+
+
+STEP3:
+#Mapping the nodes
+vi /etc/hosts
+#enter the following lines in the /etc/hosts file.
+10.1.10.60 Master
+10.1.10.66 Slave1
+10.1.10.80 Slave2
+
+# Configuring Key Based Login
+$ ssh-keygen -t rsa 
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub cesar@Master 
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub cesar@Slave1 
+$ ssh-copy-id -i ~/.ssh/id_rsa.pub cesar@Slave2 
+$ chmod 0600 ~/.ssh/authorized_keys 
+$ exit
+
+#Configuring Hadoop on Master Server
+$ cd /opt/hadoop
+
+Configuring Master Node
+$ vi etc/hadoop/masters
+Master
+
+#Configuring Slave Node
+$ vi etc/hadoop/workers
+Slave1 
+Slave2
+
+#Check configuration in WebUI
+localhost:9870/
+
+
+#https://dzone.com/articles/install-a-hadoop-cluster-on-ubuntu-18041
