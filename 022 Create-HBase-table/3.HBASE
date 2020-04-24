@@ -1,0 +1,41 @@
+HBASE
+ssh maria_dev@localhost -p 2222
+$ hbase shell
+
+> status
+> table_help
+> list
+> drop 
+> create 'consultants' 'personal_info' 'professional info'
+> describe 'consultants'
+
+put 'consultants','1','personal_info:id','100'
+put 'consultants','1','personal_info:name','cesar'
+put 'consultants','1','personal_info:email','cesar@gmail.com'
+put 'consultants','1','personal_info:phone','021-325-2215'
+put 'consultants','1','personal_info:city','austin'
+
+put 'consultants','1','professional_info:Department','Big Data'
+
+
+put 'consultants','1','personal_info:id','101'
+put 'consultants','1','personal_info:name','usi'
+put 'consultants','1','personal_info:email','usi@gmail.com'
+put 'consultants','1','personal_info:phone','021-325-2216'
+put 'consultants','1','personal_info:city','dallas'
+
+put 'consultants','1','professional_info:Department','Big Data'
+
+
+put 'consultants','1','personal_info:id','101'
+put 'consultants','1','personal_info:name','jess'
+put 'consultants','1','personal_info:email','jess@gmail.com'
+put 'consultants','1','personal_info:phone','021-325-2217'
+put 'consultants','1','personal_info:city','dallas'
+
+put 'consultants','1','professional_info:Department','Big Data'
+
+> scan 'consultants'
+
+
+#https://www.tutorialspoint.com/hbase/hbase_scan.htm

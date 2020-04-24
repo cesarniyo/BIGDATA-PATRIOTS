@@ -39,12 +39,21 @@ load data local inpath "/home/cesar/Desktop/department.json" into table departme
 SELECT * FROM department;
 
 
+#*****************************************************************************************************************************************
+ 
+CREATE TABLE tablez5 (nci_id STRING,brief_title STRING,start_date STRING,phase STRING,sites STRING,primary_purpose STRING,diseases STRING) stored as parquet;
 
 
+SELECT brief_title FROM tablez5;
 
+SELECT brief_title FROM tablez5
+  WHERE phase = 'III';
 
+SELECT nci_id , diseases FROM tablez5
+  WHERE phase IN ('I', 'II');
 
-
+SELECT phase FROM tablez5
+  WHERE diseases= 'Invasive Breast Carcinoma';
 
 
 

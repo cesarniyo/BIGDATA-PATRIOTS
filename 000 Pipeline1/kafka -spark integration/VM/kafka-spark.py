@@ -2,6 +2,7 @@ import sys
 import os
 import time
 from datetime import datetime
+import json
 
 from pyspark import SparkContext, SparkConf,SQLContext
 from pyspark.streaming import StreamingContext
@@ -19,7 +20,7 @@ lines = kvs.map(lambda x: x[1])
 def transformer(rdd):
     my_obj=json.loads(rdd)
     now = datetime.now()
-    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")# dd/mm/YY H:M:S
+    dt_string = now.strftime("%m/%d/%Y %H:%M:%S")# dd/mm/YY H:M:S
     return str(dt_string), str(my_obj['country_name']),str(my_obj['cases']),str(my_obj['region']),str(my_obj['new_cases']),str(my_obj['serious_critical'])
 transform=lines.map(transformer)
 
@@ -27,7 +28,7 @@ transform=lines.map(transformer)
 def build_df(rdd):
     if not rdd.isEmpty():
          global sqlc
-         df=sqlc.createDataFrame(rdd,shema=['Time Frame','country name','cases','region','new_cases','serious_critical'])
+         df=sqlc.createDataFrame(rdd,schema=['Time Frame','country name','cases','region','new_cases','serious_critical'])
          df.show()
 transform.foreachRDD(build_df)
 
