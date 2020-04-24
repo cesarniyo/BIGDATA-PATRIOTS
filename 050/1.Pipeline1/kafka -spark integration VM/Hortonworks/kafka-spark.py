@@ -105,12 +105,6 @@ transform.foreachRDD(build_df)
 ssc.start()
 ssc.awaitTermination()
 
-#spark-submit --jars spark-streaming-kafka-0-8-assembly_2.11-2.4.5.jar  kafka-spark.py
-#spark-submit --jars spark-streaming-kafka-0-8-assembly_2.11-2.4.5.jar,shc-core-1.1.1-1.6-s_2.10.jar  kafka-spark.py
-
-
-#spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.3.0:shc-core-1.1.1-1.6-s_2.10.jar kafka-spark.py
-#spark-submit --jars shc-core-1.1.1-1.6-s_2.10.jar,spark-core_2.11-2.3.0.jar,spark-core_2.11-1.5.2.logging.jar --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.3.0  kafka-spark.py
 
 
 #spark-submit --jars spark-core_2.11-1.5.2.logging.jar --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.3.0,com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/  kafka-spark.py

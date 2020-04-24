@@ -6,7 +6,7 @@ import requests
 
 producer = KafkaProducer(bootstrap_servers=['localhost:9096'])
 
-r = requests.get('https://api.github.com/user', auth=('cesarniyo','123Github'))
+r = requests.get('https://api.github.com/user', auth=('cesarniyo','password'))
 data_dict=r.json()
 
 data_key=['name','followers','public_repos','total_private_repos','created_at','location']
