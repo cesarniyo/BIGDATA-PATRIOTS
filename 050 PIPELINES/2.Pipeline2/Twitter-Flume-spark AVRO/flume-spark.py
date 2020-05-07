@@ -32,5 +32,6 @@ def build_df(rdd):
          df.show()
 transform.foreachRDD(build_df)
  
+#flumeStream.pprint() ?????? test this
 ssc.start()
 ssc.awaitTermination()

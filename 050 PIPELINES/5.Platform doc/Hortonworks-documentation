@@ -1,0 +1,44 @@
+Install Lunix OS
+Download and install Virtualbox
+Download and import HDP 3 (virtual machine) to Virtual box (file-> import)
+Start the Hortonworks virtual machine
+
+UI
+To get the UI= AMBARI do:
+localhost:1080 ---into the browser and then use:
+username:maria_deve
+password:maria_dev
+
+TERMINAL
+Start your local Terminal and then do:
+ssh  maria_dev@localhost -p 2222
+password:maria_dev
+
+OR
+ssh  root@localhost -p 2222
+password:hadoop
+
+AMBARI ADMIN RIGHT SETUP:
+logged in as maria_dev then:
+[maria_dev@sandbox-hdp ~]$ambari-admin-password-reset
+ password:admin
+
+
+SENDING CODE TO MARIA_DEV (VIRTUAL MACHINE):
+SEND: scp -P 2222  /home/fieldemploye/Desktop/producerAPI.py maria_dev@localhost:/home/maria_dev 
+PASSWORD:maria_dev    
+PULL:
+
+CREATING A FOLDER ON HDFS
+CREATING: hdfs dfs -mkdir /tmp/CESAR
+
+TO INSTALL PACKAGES:
+sudo yum install python-pip
+sudo pip install --upgrade pip
+pip install kafka-python
+pip install requests
+pip install nano
+
+(SUBMITTING THE CODE YOU SENT TO maria_dev)
+spark-submit producerAPI.py 
+spark-submit --jars spark-streaming-kafka-0-8-assembly_2.11-2.4.5.jar  kafka-spark.py
