@@ -1,0 +1,20 @@
+INSTALLATION
+****************
+OS
+java
+python
+scala+SBT
+
+hadoop
+flume
+kafka
+spark
+
+hive 
+hbase
+
+BUILDING PIPELINE
+******************
+flume-----------------------
+kafka-----------------------
+

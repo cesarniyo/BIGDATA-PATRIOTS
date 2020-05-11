@@ -28,7 +28,7 @@ sudo wget https://downloads.apache.org/hadoop/common/hadoop-3.1.3/hadoop-3.1.3.t
 sudo tar xzf hadoop-3.1.3.tar.gz ##-xzvf hadoop-3.1.3.tar.gz
 
 ## REMOVE THE TAR VERSION
-sudo mv hadoop-3.1.3 /home/cesar
+sudo rm hadoop-3.1.3 /home/cesar
 
 ## back to the root
 cd

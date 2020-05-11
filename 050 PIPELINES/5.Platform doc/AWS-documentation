@@ -86,7 +86,7 @@ security access group to anywhere
 
 #INSTALL MYSQL-WORKBENCH
 sudo apt install mysql-workbench
-configure it and access it
+configure it and access the database using Endpoint and port 
 
 
 #spark-submit --packages org.apache.spark:spark-streaming-kinesis-asl_2.11:2.4.4 s3://my-bucket3/kinesis-EMR.py
