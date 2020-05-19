@@ -16,12 +16,13 @@ import pandas as pd
 sc = SparkContext()
 ssc = StreamingContext(sc, 5)
 
-#Create Spark session with Hive supported.
-appName = "PySpark Hive Example"
-master = "sandbox-hdp.hortonworks.com"
-ss = SparkSession.builder \
+#Create Spark session with MongoDB supported.
+appName = "PySpark MongoDB Example"
+ss = SparkSession \
+    .builder \
     .appName(appName) \
-    .config("spark.sql.warehouse.dir", "/warehouse/tablespace/managed/hive") \
+    .config("spark.mongodb.input.uri", "mongodb://sandbox-hdp.hortonworks.com:27017/test.coll") \
+    .config("spark.mongodb.output.uri", "mongodb://sandbox-hdp.hortonworks.com:27017/test.coll") \
     .getOrCreate()
 sqlc= SQLContext(sc)
 
@@ -54,8 +55,7 @@ def build_df(rdd):
          #global sqlc
          #df=sqlc.createDataFrame(rdd,schema=['nci_id','brief_title','start_date','phase','sites','primary_purpose','diseases'])
          df.show()
-         #df.write.saveAsTable("default.tablez")#OK
-         df.write.saveAsTable(name='default.tablez5',format='parquet',mode='append')#OK
+         df.write.format("com.mongodb.spark.sql.DefaultSource").mode("append").save()#mongo / com.mongodb.spark.sql.DefaultSource/ joson
 transform.foreachRDD(build_df)
 
 
@@ -66,11 +66,17 @@ ssc.awaitTermination()
 
 
 
-#spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.3.1,org.apache.spark:spark-core_2.11:2.3.1,com.hortonworks:shc-core:1.1.1-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/  CAPkafka-spark.py
+#spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.3.1,org.apache.spark:spark-core_2.11:2.3.1,com.hortonworks:shc-core:1.1.1-2.1-s_2.11,org.mongodb.spark:mongo-spark-connector_2.11:2.3.1 --repositories http://repo.hortonworks.com/content/groups/public/  CAPkafka-sparkMongoDB.py
 
+#https://github.com/nikunjness/mongo-ambari
+#https://docs.mongodb.com/spark-connector/master/python-api/  
+#https://www.youtube.com/watch?v=bKjH8WhSu_E 
+#https://www.digitalocean.com/community/tutorials/how-to-install-mongodb-on-centos-7
+#http://www.ehadoopinfo.com/2017/08/n11-installing-mongodb-in-hdp-2223224.html
 
+#https://tecadmin.net/tutorial/mongodb/create-database/
 
-
-
+# TO CHECK FOR THE OUTPUT
+#db.coll.find()
 
 

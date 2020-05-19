@@ -35,7 +35,7 @@ source .bash_profile
 
 echo $KAFKA_HOME
 
-cp server.properties server-kafkatest
+cp  server.properties server-kafkatest  (copying)
 sudo gedit server-kafkatest
 
 uncomment + change the number to 9096

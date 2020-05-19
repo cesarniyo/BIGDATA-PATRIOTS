@@ -42,3 +42,6 @@ pip install nano
 (SUBMITTING THE CODE YOU SENT TO maria_dev)
 spark-submit producerAPI.py 
 spark-submit --jars spark-streaming-kafka-0-8-assembly_2.11-2.4.5.jar  kafka-spark.py
+
+LINKS
+https://www.youtube.com/watch?v=OBbvmAudjPk
