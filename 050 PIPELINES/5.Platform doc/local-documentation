@@ -1,6 +1,6 @@
 INSTALLATION
 ****************
-OS
+OS (Virtualbox: https://www.techmespot.com/how-to-install-ubuntu-16-04-on-virtualbox/)
 java
 python
 scala+SBT
@@ -17,4 +17,5 @@ BUILDING PIPELINE
 ******************
 flume-----------------------
 kafka-----------------------
+
 
