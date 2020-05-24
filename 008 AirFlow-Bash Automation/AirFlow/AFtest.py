@@ -1,26 +1,4 @@
-#INSTALLING AIRFLOW
-*******************
 
-# install from pypi using pip
-pip install apache-airflow
-
-# initialize the database
-airflow initdb
-
-# start the web server, default port is 8080
-airflow webserver -p 8080
-
-# start the scheduler
-airflow scheduler
-
-# visit localhost:8080 in the browser and enable the example dag in the home page
-
-Airflow will be installed at the following path (/home/fieldemploye/airflow)
-Now create following two folders: dags & scripts then add both my dag and python scripts with task to be automated
-/home/fieldemploye/airflow/dags/AFtest.py
-/home/fieldemploye/airflow/scripts/file1.py
-
-#**************************************************************AFtest.py*********************************************************
 from datetime import timedelta
 # The DAG object; we'll need this to instantiate a DAG
 from airflow import DAG
@@ -63,6 +41,7 @@ default_args = {
 }
 
 
+
 dag = DAG('simple', default_args=default_args)
 t1 = BashOperator(
     task_id='testairflow1',
@@ -77,31 +56,4 @@ t3 = BashOperator(
     bash_command='python /home/fieldemploye/airflow/scripts/ScrapingIndeed.py',
     dag=dag)
 
-t1 >> t2 >> t3 # t1 >> [t2, t3]
-#********************************************************************************************************************************
-# start the scheduler                                           (TAB1)
-airflow scheduler
-
-# print the list of active DAGs                                 (TAB2)
-airflow list_dags
-
-# prints the list of tasks defined in the dag ("simple"= dag_id)
-airflow list_tasks simple
-
-# prints the hierarchy of tasks in the tutorial DAG
-airflow list_tasks simple --tree
-
-# command layout: command subcommand dag_id task_id date
-# testing task1
-airflow test simple testairflow1 2020-05-22
-
-# testing task2
-airflow test simple testairflow2 2020-05-22
-
-
-
-
-
-#https://airflow.apache.org/docs/stable/start.html
-#https://www.youtube.com/watch?v=43wHwwZhJMo&t=126s
-#http://michal.karzynski.pl/blog/2017/03/19/developing-workflows-with-apache-airflow/
+t1 >> t2 >> t3
