@@ -1,0 +1,17 @@
+version:'3'
+services:
+   web:
+      build:.     #build a web app image from code available here
+      command: python src/profiles_project/manage.py runserver 0.0.0.0:8080
+      volume:
+        - .:/code
+      port:
+        - "8000:8000"
+      image:nginx #get web app image from docker hub
+      port:
+      -9090:80    #exposing port 9090 to access the web nginx
+   database:
+      image:redis
+
+
+
