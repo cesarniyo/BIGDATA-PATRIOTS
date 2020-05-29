@@ -63,6 +63,8 @@ git rm -r foldername
 git commit -m "Removing the folder"
 git push origin master........username....password
 
+git pull "....link...."
+
 
 
 

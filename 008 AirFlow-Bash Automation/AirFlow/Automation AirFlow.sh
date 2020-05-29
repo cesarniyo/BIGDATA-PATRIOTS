@@ -7,10 +7,10 @@ pip install apache-airflow
 # initialize the database
 airflow initdb
 
-# start the web server, default port is 8080
+# start the web server, default port is 8080                    (TAB1)
 airflow webserver -p 8080
 
-# start the scheduler
+# start the scheduler                                           (TAB2)
 airflow scheduler
 
 # visit localhost:8080 in the browser and enable the example dag in the home page
@@ -18,7 +18,7 @@ airflow scheduler
 Airflow will be installed at the following path (/home/fieldemploye/airflow)
 Now create following two folders: dags & scripts then add both my dag and python scripts with task to be automated
 /home/fieldemploye/airflow/dags/AFtest.py
-/home/fieldemploye/airflow/scripts/file1.py
+/home/fieldemploye/airflow/scripts/file1.py  ScrapingLinkedIn.py   ScrapingIndeed.py
 
 #**************************************************************AFtest.py*********************************************************
 from datetime import timedelta
@@ -79,16 +79,14 @@ t3 = BashOperator(
 
 t1 >> t2 >> t3 # t1 >> [t2, t3]
 #********************************************************************************************************************************
-# start the scheduler                                           (TAB1)
-airflow scheduler
 
-# print the list of active DAGs                                 (TAB2)
+# print the list of active DAGs                                 (TAB3)
 airflow list_dags
 
 # prints the list of tasks defined in the dag ("simple"= dag_id)
 airflow list_tasks simple
 
-# prints the hierarchy of tasks in the tutorial DAG
+# prints the hierarchy of tasks in the simple DAG
 airflow list_tasks simple --tree
 
 # command layout: command subcommand dag_id task_id date
@@ -98,8 +96,12 @@ airflow test simple testairflow1 2020-05-22
 # testing task2
 airflow test simple testairflow2 2020-05-22
 
+# start your backfill on a date range (to record logs)
+airflow backfill tutorial -s 2015-06-01 -e 2020-05-22
 
-
+# To run the dag go the Airflow UI select the dag to run then turn it ON
+visit localhost:8080 in the browser and enable the simple dag in the home page
+#starting date and schudule interval (every 5 min)are defined inside the dag default_args all you have to do is just turning it ON
 
 
 #https://airflow.apache.org/docs/stable/start.html

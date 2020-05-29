@@ -3,41 +3,60 @@
 #Docker installation
 sudo apt-get install docker.io
 
-#Checking version and  other docker info
+
+#Checking version, docker info and get help 
 docker version
 sudo docker info
 docker --help ( more info on docker commands)
 
-#Checking for available images and container
+
+#Checking for available images 
 sudo docker images
+
+#Checking for available containers
 sudo docker ps
 sudo docker ps -a (shows the inactive container)
+
+
+
+
+#Search and pull an image
+docker search airflow
+docker pull puckel/docker-airflow
+
 
 #Search for an image
 docker search mysql #(you will see a list just pick one and...)
 #Name and give the password to mysql and then download it
 docker run --name manasamysql -e MYSQL_ROOT_PASSWORD=pass -d mysql/mysql-servers:5.6 
-
 #Run the image
 sudo docker exec -it manasamysql -uroot -p (...password)
-mysql>...so stuff then ....exit
-
+mysql>...do some stuff once done ....exit
 #To check the log file
 sudo docker exec -it manasamysql bash
 [root@......]cat /var/log/mysqld.log
 
 
+
+
 #Stop a container
 docker stop [CONTAINER ID]
+
 #Remove container
-docker rm [CONTAINER ID]
+docker rm [CONTAINER ID] #remove one container
+docker container prune   #remove all container
 
 #Remove image
-sudo docker rmi [IMAGE ID]
-sudo docker rmi -f [IMAGE ID]  #forced
+sudo docker rmi [IMAGE ID]     #remove one image
+sudo docker rmi -f [IMAGE ID]  #forced remove (if there is a container still attached to it)
+sudo docker image prune        #remove all image not taged
+sudo docker image prune -a     #remove all image not connected to a container
+
+
+
 
 # DOCKERFILE (List of instraction docker will follow to BUILD A DOCKER IMAGE)
-#-------------------------------------------------------------------------------DOCKERFILE
+#-------------------------------------------------------------------------------------------DOCKERFILE
 STEP1: Create a file named Dockerfile (no extension)
 
 
@@ -49,17 +68,21 @@ CMD ['echo','Hello World...!from my first docker image']
 #*****************************Dockerfile*************************************
 
 
-STEP2: Build the image (From Desktop folder)
+STEP2: Build the image (Dockerfile located here Desktop folder)
 sudo docker build -t myimage1:1.0 /home/fieldemploye/Desktop
 sudo docker build  /home/fieldemploye/Desktop
+sudo docker build -t myimage1:1.0 .         
 
 
 STEP3: run the image
 sudo docker run [IMAGE ID]
+sudo docker run -i -t [IMAGE ID]
+
+
 
 
 # DOCKERCOMPOSE (used to run multiple containers= multiple services)
-#--------------------------------------------------------------------------DOCKERCOMPOSE
+#---------------------------------------------------------------------------------------DOCKERCOMPOSE
 
 # Install Docker-Compose  
 -pip install -U docker-compose
@@ -92,9 +115,38 @@ services:
 -docker-compose down
 
 
+#--------------------------------------------------------------------------------------------DOCKERHUB
+#DOCKER HUB
 
--------------------------------------
-#https://www.youtube.com/watch?v=Y_rh-VeC_j4&t=1s
+#Create an account
+cesarniyo
+3Docker
+
+#Create a repo
+create a repo on Docker hub
+#Re-Tag your local image
+sudo docker tag 21b0bd1f2c9e cesarniyo/myimage1:firsttry
+
+#Push your image
+sudo docker push cesarniyo/myimage1
+
+#Search and pull an image
+docker search myimage1
+docker pull cesarniyo/myimage1:firsttry
+
+
+#-----------------------------------------------------------------------------SAVING/LOAD IMAGE LOCALY
+#To save a Docker image
+sudo docker save myimage1 > myimage1.tar
+sudo docker load --input myimage1.tar
+
+
+
+
+#DOCKERLIZE YOUR PYTHON APP: https://runnable.com/docker/python/dockerize-your-python-application
+#DOCKERFILE DOCKER-COMPOSE: https://www.youtube.com/watch?v=Y_rh-VeC_j4&t=1s
+#PUSH PULL:   https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html
+#DELETE STUFF:  https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/
 
 
 
