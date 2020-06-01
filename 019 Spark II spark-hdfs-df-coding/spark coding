@@ -1,6 +1,6 @@
 
 
-#RDD IN CLASS :CREATING AN RDD     (......................... on the spark shell do $pyspark or $spark-shell)
+#OPTION0 :CREATING AN RDD     (......................... on the spark shell do $pyspark or $spark-shell)
 mylist=[1,2,3,4,5]
 rdd=sc.parallelize(mylist)
 rdd.collect()
@@ -110,6 +110,67 @@ if __name__ == "__main__":
 
 # run the code
 $spark-submit pyspark_example.py
+
+
+
+SHELL MODE
+*********************
+>>> myfile=open('SCRUM.txt','r')
+>>> line_list=myfile.readlines()
+>>> rdd=sc.parallelize([[line_list]])
+>>> df=rdd.toDF('MYTEXT')
+>>> df.show()
+
+
+
+------------------------------------------------------------------------------------------------------------------------------
+def word_count(str):
+    counts={}
+    words=str.split()
+    for word in words:
+        if word.lower() in counts:
+            counts['word']+=1
+        else:
+            counts['word']=1
+
+
+
+myfile='/home/employe/Desktop/mytext.txt'
+mytext=open(myfilepath,'r')
+mytextcontent=mytext.read()
+
+
+counts=word_count(mytextcontent)
+
+[print key, value for key,value in counts.items()]
+
+with open('output.txt','w') as myfile:
+   for key in counts:
+       myfile.write(key+':'+ str(counts[key])+'\n')
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

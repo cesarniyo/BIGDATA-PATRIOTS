@@ -144,6 +144,7 @@ sudo docker load --input myimage1.tar
 
 
 #DOCKERLIZE YOUR PYTHON APP: https://runnable.com/docker/python/dockerize-your-python-application
+#                          : https://www.youtube.com/channel/UCTt7pyY-o0eltq14glaG5dg
 #DOCKERFILE DOCKER-COMPOSE: https://www.youtube.com/watch?v=Y_rh-VeC_j4&t=1s
 #PUSH PULL:   https://ropenscilabs.github.io/r-docker-tutorial/04-Dockerhub.html
 #DELETE STUFF:  https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/

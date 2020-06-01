@@ -1,0 +1,183 @@
+DATE: 04/20/2020
+
+NAME: CESAR
+OBJ:  CAPSTONE PROJECT (PIPELINE)
+ARCHIEVED:find and extracted the data from the source(NATIONAL CANCER INSTITUTE API)
+PENDING: working on the database issue on the previous projects  
+NEED HELP: undefined yet
+
+
+NAME:TAMMY
+ARCHIEVED: Created a producer and consumer in scala to retrieve information from the NY Times API.
+PENDING: Storing dataframe to database.
+NEED HELP: Getting a null pointer exception when df.show() is executing. So my dataframe cant display
+
+NAME:USI
+ARCHIEVED: Created a producer and consumer in python to retrieve information from the Lufthanasa API.
+PENDING: Storing dataframe to database.
+NEED HELP: N/A
+
+NAME: JESS
+ARCHIEVED: created producer in scala to retrieve data from api
+PENDING: consumer in spark and database
+NEED HELP: transform producer to streaming, previous tasks
+
+--------------------------------------------------------------------------------------------------------
+SCRUM ( 04/20/2020 12:00PM) :CAPSTONE PROJECT (pipelines) 
+OBJ:  CAPSTONE PROJECT (PIPELINE) 
+
+
+NAME: CESAR
+ARCHIEVED:built the Dataframe for the data extracted from the (NATIONAL CANCER INSTITUTE API)
+PENDING: working on loading the dataframe into the database (HIVE)
+NEED HELP: on how hortonworks-hive work (tried multiple time but loading no data into hive)
+DUE DATE: 04/21/2020 AM
+
+NAME:TAMMY
+ARCHIEVED: Created a producer and consumer in scala to retrieve information from the NY Times API.
+PENDING: Storing dataframe to database.
+NEED HELP: Getting a null pointer exception when df.show() is executing. So my dataframe cant display
+DUE DATE: 04/21/2020 8AM
+
+NAME:USI
+ARCHIEVED: Created a producer and consumer in python to retrieve information from the Lufthanasa API.
+PENDING: Storing dataframe to database.
+NEED HELP: N/A
+DUE DATE: 04/21/2020 8AM
+
+NAME: JESS
+ARCHIEVED: created producer in scala to retrieve data from api
+PENDING: working on database
+NEED HELP: transform producer to streaming, previous tasks
+DUE DATE: 04/21/2020 8AM
+
+--------------------------------------------------------------------------------------------------------
+SCRUM ( 05/05/2020 ) :AWS PIPELINE 
+
+
+
+NAME: CESAR
+ARCHIEVED:Got kinesis connect to API
+PENDING: working on connecting kinesis to spark
+NEED HELP:N/A
+DUE DATE: 06/05/2020 8AM
+
+NAME:TAMMY
+ARCHIEVED:Got kinesis connect to API,connected kinesis to EMR
+PENDING: working on storing data into database
+NEED HELP:N/A
+DUE DATE: 06/05/2020 8AM
+
+
+NAME:USI
+ARCHIEVED:Created AWS account and configured AWS CLI
+PENDING: Trying to connect the API to kinesis 
+NEED HELP: (needs a help on PENDING)
+DUE DATE: 06/05/2020 8AM
+
+
+NAME: JESS
+ARCHIEVED:Created AWS account and configured AWS CLI
+PENDING: Trying to connect the API to kinesis 
+NEED HELP: N/A
+DUE DATE: 06/05/2020 8AM
+
+--------------------------------------------------------------------------------------------------------
+SCRUM ( 05/06/2020 ) :AWS PIPELINE + MOCK INTERVIEW
+
+
+
+NAME: CESAR
+ARCHIEVED:Got kinesis connected to spark  
+PENDING: working on kinesis-spark  dependences issues + prepare for interview
+NEED HELP:N/A
+DUE DATE: 06/06/2020 
+
+NAME:TAMMY
+ARCHIEVED:completed the aws pipeline  
+PENDING: prepare for interview 
+NEED HELP:N/A
+DUE DATE: 06/06/2020 
+
+
+NAME:USI
+ARCHIEVED:Got kinesis connected to spark  
+PENDING: working on kinesis-spark  dependences issues + prepare for interview
+NEED HELP:N/A
+DUE DATE: 06/06/2020 
+
+
+NAME: JESS
+ARCHIEVED:Established the API to kinesis connection
+PENDING: working on kinesis spark connection + prepare for interview
+NEED HELP: N/A
+DUE DATE: 06/06/2020 
+
+--------------------------------------------------------------------------------------------------------
+SCRUM ( 05/07/2020 ) :AWS PIPELINE 
+
+
+
+NAME: CESAR
+ARCHIEVED: kinesis-spark  dependences issues solve + creating dataframe
+PENDING: saving the dataframe to the database
+NEED HELP:N/A
+DUE DATE: 06/07/2020 
+
+NAME:TAMMY
+ARCHIEVED:completed the aws pipeline  
+PENDING: working on tableau 
+NEED HELP:N/A
+DUE DATE: 06/07/2020 
+
+
+NAME:USI
+ARCHIEVED:Got kinesis connected to spark  
+PENDING: working on kinesis-spark  dependences issues 
+NEED HELP:N/A
+DUE DATE: 06/07/2020 
+
+
+NAME: JESS
+ARCHIEVED:Established the API to kinesis connection
+PENDING: working on kinesis spark connection 
+NEED HELP: N/A
+DUE DATE: 06/07/2020 
+
+--------------------------------------------------------------------------------------------------------
+SCRUM ( 05/08/2020 ) :AWS PIPELINE + Interview
+
+
+
+NAME: CESAR
+ARCHIEVED: AWS Pipeline completed
+PENDING: working on interview + tableau
+NEED HELP:N/A
+DUE DATE: 06/08/2020 
+
+NAME:TAMMY
+ARCHIEVED:AWS Pipeline completed  
+PENDING: working on interview + tableau 
+NEED HELP:N/A
+DUE DATE: 06/08/2020 
+
+
+NAME:USI
+ARCHIEVED:AWS Pipeline completed  
+PENDING: working on interview + tableau 
+NEED HELP:N/A
+DUE DATE: 06/08/2020 
+
+
+NAME: JESS
+ARCHIEVED:Established the API to kinesis connection
+PENDING: working on kinesis-spark and database connectionS 
+NEED HELP: N/A
+DUE DATE: 06/08/2020 
+
+
+
+
+
+
+
