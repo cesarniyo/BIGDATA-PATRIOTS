@@ -13,7 +13,7 @@ docker --help ( more info on docker commands)
 #Checking for available images 
 sudo docker images
 
-#Checking for available containers
+#Checking for available containers(running instance of an image)
 sudo docker ps
 sudo docker ps -a (shows the inactive container)
 
@@ -68,15 +68,15 @@ CMD ['echo','Hello World...!from my first docker image']
 #*****************************Dockerfile*************************************
 
 
-STEP2: Build the image (Dockerfile located here Desktop folder)
+STEP2: Build the image (Dockerfile located in Desktop folder)
 sudo docker build -t myimage1:1.0 /home/fieldemploye/Desktop
 sudo docker build  /home/fieldemploye/Desktop
-sudo docker build -t myimage1:1.0 .         
+sudo docker build -t myimage1:1.0 .     # note the dot!!!!    
 
 
 STEP3: run the image
 sudo docker run [IMAGE ID]
-sudo docker run -i -t [IMAGE ID]
+sudo docker run -i -t [IMAGE ID]# run it iteratively...(this allow to get user input)
 
 
 
