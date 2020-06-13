@@ -67,6 +67,12 @@ sudo pip3 install -r requirements/requirements-linux-python3.txt
 make qt5py3
 run 'python3 labelImg.py'
 
+#label images using the tool
+using the tool open the folder where images are and then start annation 
+
+
+
+
 
 
 
