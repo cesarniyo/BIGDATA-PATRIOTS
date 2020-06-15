@@ -2,10 +2,10 @@
 
 1.Visit Anaconda.com/downloads (https://www.anaconda.com/products/individual)
 2.Select Linux
-3.Copy the bash (.sh file) installer link
-4.Use wget to download the bash installer
-5.Run the bash script to install Anaconda3
-6.source the .bash-rc file to add Anaconda to your PATH
+3.Copy the bash (.sh file) installer link  (Right click to copy the link address)
+4.Use wget to download the bash installer  (Anaconda3-5.2.0-Linux-x86_64.sh)
+5.Run the bash script to install Anaconda3 (bash Anaconda3-5.2.0-Linux-x86_64.sh)
+6.source the .bashrc (source .bashrc) file to add Anaconda to your PATH
 7.Start the Python REPL
 8.start jupyter notebook
 
